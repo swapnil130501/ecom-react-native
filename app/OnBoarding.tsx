@@ -1,7 +1,11 @@
-import { Button, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { theme } from "@/app/theme";
 import { useUserStore } from "@/store/useUserStore";
 import { useRouter } from "expo-router";
+import HapticButton from "@/components/HapticButton";
+import { LinearGradient } from 'expo-linear-gradient';
+import { StatusBar } from "expo-status-bar";
+import { OnboardingImage } from "@/components/OnboardingImage";
 
 export default function Onboarding() {
 
@@ -15,14 +19,23 @@ export default function Onboarding() {
     }
 
     return (
-        <View style={styles.container}>
-            <Text style={styles.text}>
-                On Boarding
-            </Text>
-
-            <Button onPress={handlePress} title="Finish OnBoarding">
-            </Button>
-        </View>
+        <LinearGradient
+            style={styles.container}
+            start={{x: 0, y:0}} // This is the top left
+            end={{x: 1, y: 1}} // This is the bottom right
+            colors={[theme.green, theme.appleGreen, theme.limeGreen]}
+        >
+            <StatusBar style="light" />
+            <OnboardingImage/>
+            <View>
+                <Text style={styles.heading}>Fakestore</Text>
+                <Text style={styles.tagLine}>Shop your heart out !</Text>
+            </View>
+            <HapticButton
+                onPress={handlePress}
+                title="Finish onboarding"
+            />
+        </LinearGradient> 
     )
 }
 
