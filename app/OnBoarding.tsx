@@ -5,12 +5,12 @@ import { useRouter } from "expo-router";
 
 export default function Onboarding() {
 
-    const { toggleOnBoarding } = useUserStore();
+    const { toggleOnboarding } = useUserStore();
 
     const router = useRouter();
 
     function handlePress() {
-        toggleOnBoarding();
+        toggleOnboarding();
         router.replace("/");
     }
 

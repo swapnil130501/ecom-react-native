@@ -5,9 +5,9 @@ import { useUserStore } from "@/store/useUserStore";
 
 export default function Layout() {
 
-    const { isOnBoardingFinished } = useUserStore();
+    const { isOnboardingFinished } = useUserStore();
 
-    if(!isOnBoardingFinished) {
+    if(!isOnboardingFinished) {
         return (
            <Redirect href="/OnBoarding"></Redirect>
         )
